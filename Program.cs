@@ -7,29 +7,15 @@ Console.WriteLine("Welcome to Virtual Pet!\n\nWhat is the name of your pet.");
 string name = Console.ReadLine();
 Console.WriteLine("What is the species of you pet.");
 string species = Console.ReadLine();
-Pet pet = new Pet(name, species, pettype);
-Console.WriteLine("How many pets would you like your shelter to store?");
-int cap;
-try
-{
-    cap = Int32.Parse(Console.ReadLine());
-}
-catch (Exception e)
-{
-    cap = 5;
-}
-Console.Clear();
-Console.WriteLine("Your shelter will store " + cap + " pets!\nPress enter to continue.");
-Console.ReadLine();
-Shelter shelter = new Shelter(cap);
-Pet activePet;
+Pet pet = new Pet(name, species);
+
 
 bool isRunning = true;
 while (isRunning)
 {
     Console.Clear();
-    Console.WriteLine("Welcome to Virtual Pet!\n\n1. Create a pet\n2. Status\n3. Interact\n4. Add pet to shelter\n5. Remove pet from shelter\n0. Quit");
-
+    Console.WriteLine("Welcome to Virtual Pet!\n\n1. Create a pet\n2. Remove a pet\n3. Status\n4. Interact\n5. \n0. Quit");
+     
     int input;
     try
     {
@@ -56,16 +42,20 @@ while (isRunning)
             Console.WriteLine("What is the species of you pet.");
             species = Console.ReadLine();
             pet = new Pet(name, species);
+            List<Pet> list = new List<Pet>();
+
             break;
         case 2:
-            Console.Clear();
-            Console.WriteLine("Your pet's name is " + pet.Name + "\nYour pet's species is " + pet.Species + "\nYour pet's hunger is " + pet.Hunger + "\nYour pet's boredom is " + pet.Boredom + "\nYour pet's health is " + pet.Health + "\nPress enter to continue");
-            Console.ReadLine();
 
             break;
         case 3:
             Console.Clear();
-            Console.WriteLine("how would you like to interact with your pet?\n\n1. Feed\n2. Play");
+            Console.WriteLine("Your pet's name is " + pet.Name + "\nYour pet's species is " + pet.Species + "\nYour pet's hunger is " + pet.Hunger + "\nYour pet's boredom is " + pet.Boredom + "\nYour pet's health is " + pet.Health + "\nPress enter to continue");
+            Console.ReadLine();
+            break;
+        case 4:
+            Console.Clear();
+            Console.WriteLine("how would you like to interact with your pet?\n\n1. Feed\n2. Play\n3. Take to the vet");
             int inputTwo;
             try
             {
@@ -73,7 +63,7 @@ while (isRunning)
             }
             catch (Exception e)
             {
-                inputTwo= 0;
+                inputTwo = 0;
             }
             switch (inputTwo)
             {
@@ -96,10 +86,14 @@ while (isRunning)
                     Console.ReadLine();
                     pet.Tick();
                     break;
+                case 3:
+                    Console.Clear();
+                    pet.Vet();
+                    Console.WriteLine("Your pet's health is now " + pet.Health + "\nPress enter to continue.");
+                    Console.ReadLine();
+                    pet.Tick();
+                    break;
             }
-            break;
-        case 4:
-            
             break;
         case 5:
 

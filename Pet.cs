@@ -8,8 +8,8 @@ namespace template_csharp_virtual_pet
 {
     public class Pet
     {
-        public string Name { get; set; }
-        public string Species { get; set; }
+        public string Name;
+        public string Species;
         public int Hunger;
         public int Boredom;
         public int Health;

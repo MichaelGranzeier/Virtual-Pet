@@ -3,11 +3,16 @@ using template_csharp_virtual_pet;
 using template_csharp_virtual_shelter;
 using template_csharp_virtual_robot;
 
+Console.Clear();
 Console.WriteLine("Welcome to Virtual Pet!\n\nWhat is the name of your pet.");
 string name = Console.ReadLine();
 Console.WriteLine("What is the species of you pet.");
 string species = Console.ReadLine();
+List<Shelter> pets = new List<Shelter>();
 Pet pet = new Pet(name, species);
+pet = new Pet(name, species);
+
+
 
 
 bool isRunning = true;
@@ -37,21 +42,23 @@ while (isRunning)
             isRunning = false;
             break;
         case 1:
+            Console.Clear();
             Console.WriteLine("What is the name of your pet.");
             name = Console.ReadLine();
             Console.WriteLine("What is the species of you pet.");
             species = Console.ReadLine();
-            pet = new Pet(name, species);
-            List<Pet> list = new List<Pet>();
-
+            pets = new List<Shelter>();
             break;
         case 2:
 
             break;
         case 3:
+            foreach (Shelter shelter in pets)
+            {
             Console.Clear();
             Console.WriteLine("Your pet's name is " + pet.Name + "\nYour pet's species is " + pet.Species + "\nYour pet's hunger is " + pet.Hunger + "\nYour pet's boredom is " + pet.Boredom + "\nYour pet's health is " + pet.Health + "\nPress enter to continue");
             Console.ReadLine();
+            }
             break;
         case 4:
             Console.Clear();

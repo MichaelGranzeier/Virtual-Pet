@@ -8,8 +8,8 @@ Console.WriteLine("Welcome to Virtual Pet!\n\nWhat is the name of your pet.");
 string name = Console.ReadLine();
 Console.WriteLine("What is the species of you pet.");
 string species = Console.ReadLine();
-List<Shelter> pets = new List<Shelter>();
 Pet pet = new Pet(name, species);
+List<Shelter> pets = new List<Shelter>();
 pet = new Pet(name, species);
 
 
@@ -53,13 +53,13 @@ while (isRunning)
 
             break;
         case 3:
-            foreach (Shelter shelter in pets)
-            {
             Console.Clear();
+            //for (int i = 0; i< pets.Count; i++)
+            //{
             Console.WriteLine("Your pet's name is " + pet.Name + "\nYour pet's species is " + pet.Species + "\nYour pet's hunger is " + pet.Hunger + "\nYour pet's boredom is " + pet.Boredom + "\nYour pet's health is " + pet.Health + "\nPress enter to continue");
-            Console.ReadLine();
-            }
+            //}
             break;
+            Console.ReadLine();
         case 4:
             Console.Clear();
             Console.WriteLine("how would you like to interact with your pet?\n\n1. Feed\n2. Play\n3. Take to the vet");

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace template_csharp_virtual_pet
+namespace template_csharp_virtual_Pet
 {
     public class Pet
     {
@@ -14,7 +14,14 @@ namespace template_csharp_virtual_pet
         public int Boredom;
         public int Health;
         
-
+        public Pet()
+        {
+            Name = "Fred";
+            Species = "Dog";
+            Hunger = 60;
+            Boredom = 60;
+            Health = 60;
+        }
         public Pet(string name, string species)
         {
             Name = name;

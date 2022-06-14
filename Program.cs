@@ -1,7 +1,7 @@
 ﻿// Your Program Code Here
-using template_csharp_virtual_pet;
-using template_csharp_virtual_shelter;
-using template_csharp_virtual_robot;
+using template_csharp_virtual_Pet;
+using template_csharp_virtual_Shelter;
+using template_csharp_virtual_Robot;
 
 Console.Clear();
 Console.WriteLine("Welcome to Virtual Pet!\n\nWhat is the name of your pet.");
@@ -9,17 +9,16 @@ string name = Console.ReadLine();
 Console.WriteLine("What is the species of you pet.");
 string species = Console.ReadLine();
 Pet pet = new Pet(name, species);
-List<Shelter> pets = new List<Shelter>();
-pet = new Pet(name, species);
-
-
-
+Shelter pets = new Shelter();
+Shelter shelters = new Shelter();
+shelters.Pets.Add(pet);
+Robot robot = new Robot();
 
 bool isRunning = true;
 while (isRunning)
 {
     Console.Clear();
-    Console.WriteLine("Welcome to Virtual Pet!\n\n1. Create a pet\n2. Remove a pet\n3. Status\n4. Interact\n5. \n0. Quit");
+    Console.WriteLine("Welcome to Virtual Pet!\n\n1. Create a pet\n2. Remove a pet\n3. Status\n4. Interact\n5. Swap pets \n0. Quit");
      
     int input;
     try
@@ -47,17 +46,17 @@ while (isRunning)
             name = Console.ReadLine();
             Console.WriteLine("What is the species of you pet.");
             species = Console.ReadLine();
-            pets = new List<Shelter>();
+            shelters.Pets.Add(pet);
             break;
         case 2:
 
             break;
         case 3:
             Console.Clear();
-            //for (int i = 0; i< pets.Count; i++)
-            //{
-            Console.WriteLine("Your pet's name is " + pet.Name + "\nYour pet's species is " + pet.Species + "\nYour pet's hunger is " + pet.Hunger + "\nYour pet's boredom is " + pet.Boredom + "\nYour pet's health is " + pet.Health + "\nPress enter to continue");
-            //}
+            foreach(Pet p in pets)
+            {
+                Console.WriteLine("Your pet's name is " + pet.Name + "\nYour pet's species is " + pet.Species + "\nYour pet's hunger is " + pet.Hunger + "\nYour pet's boredom is " + pet.Boredom + "\nYour pet's health is " + pet.Health + "\nPress enter to continue");
+            }
             break;
             Console.ReadLine();
         case 4:

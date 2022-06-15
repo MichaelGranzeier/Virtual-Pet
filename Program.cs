@@ -9,10 +9,8 @@ string name = Console.ReadLine();
 Console.WriteLine("What is the species of you pet.");
 string species = Console.ReadLine();
 Pet pet = new Pet(name, species);
-Shelter pets = new Shelter();
 Shelter shelters = new Shelter();
 shelters.Pets.Add(pet);
-Robot robot = new Robot();
 
 bool isRunning = true;
 while (isRunning)
@@ -46,16 +44,33 @@ while (isRunning)
             name = Console.ReadLine();
             Console.WriteLine("What is the species of you pet.");
             species = Console.ReadLine();
-            shelters.Pets.Add(pet);
+            Console.WriteLine("is your pet a robot?");
+            if (Console.ReadLine() == "yes")
+            {
+                Robot r = new Robot(name, species, 100, 100);
+                shelters.Pets.Add(r);
+            }
+            else
+            {
+
+            Pet p = new Pet(name, species);
+            shelters.Pets.Add(p);
+            }
             break;
         case 2:
-
+            for (int i=0; i < shelters.Pets.Count; i++)
+            {
+                Console.WriteLine(i + " is your pet " + shelters.Pets[i].Name);
+            }
+            Console.WriteLine("Which one would you like to remove?");
+            int remove = Int32.Parse(Console.ReadLine());
+            shelters.Pets.RemoveAt(remove);
             break;
         case 3:
             Console.Clear();
-            foreach(Pet p in pets)
+            foreach(Pet item in shelters.Pets)
             {
-                Console.WriteLine("Your pet's name is " + pet.Name + "\nYour pet's species is " + pet.Species + "\nYour pet's hunger is " + pet.Hunger + "\nYour pet's boredom is " + pet.Boredom + "\nYour pet's health is " + pet.Health + "\nPress enter to continue");
+                Console.WriteLine("Your pet's name is " + item.Name + "\nYour pet's species is " + item.Species + "\nYour pet's hunger is " + item.Hunger + "\nYour pet's boredom is " + item.Boredom + "\nYour pet's health is " + item.Health + "\nPress enter to continue");
             }
             break;
             Console.ReadLine();
@@ -102,7 +117,13 @@ while (isRunning)
             }
             break;
         case 5:
-
+            for (int i = 0; i < shelters.Pets.Count; i++)
+            {
+                Console.WriteLine(i + " is your pet " + shelters.Pets[i].Name);
+            }
+            Console.WriteLine("Which one would you like to remove?");
+            int swap = Int32.Parse(Console.ReadLine());
+            pet = shelters.Pets[swap];
             break;
     }
 

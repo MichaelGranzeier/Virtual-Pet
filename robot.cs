@@ -9,8 +9,18 @@ namespace template_csharp_virtual_Robot
 {
     public class Robot : Pet
     {
+        public string Name;
+        public string Species;
         public int Battery = 100;
         public int Oil = 100;
+
+        public Robot(string name,string species, int battery, int oil)
+        {
+            Name = name;
+            Species = species;
+            Battery = battery;
+            Oil = oil;
+        }
 
         public void Charge()
         {

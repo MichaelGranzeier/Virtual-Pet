@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using template_csharp_virtual_pet;
+using template_csharp_virtual_Pet;
 namespace virtual_pet_tests
 {
     [TestFixture]

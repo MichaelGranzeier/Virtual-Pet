@@ -4,9 +4,9 @@ using template_csharp_virtual_Shelter;
 using template_csharp_virtual_Robot;
 
 Console.Clear();
-Console.WriteLine("Welcome to Virtual Pet!\n\nWhat is the name of your pet.");
+Console.WriteLine("Welcome to Virtual Pet!\n\nWhat is the name of your pet?");
 string name = Console.ReadLine();
-Console.WriteLine("What is the species of you pet.");
+Console.WriteLine("What is the species of you pet?");
 string species = Console.ReadLine();
 Pet pet = new Pet(name, species);
 Shelter shelters = new Shelter();
